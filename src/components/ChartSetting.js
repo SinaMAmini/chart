@@ -3,11 +3,11 @@ import './ChartSetting.scss';
 import Dropdown from './custom-inputs/Dropdown';
 import Range from './custom-inputs/Range';
 
-function ChartSetting({setConfigs, configs}) {
+function ChartSetting({setConfigs, configs, showing}) {
     const chartTypes = ['column', 'pie', 'line', 'spline', 'area', 'bar'];
 
     return (
-        <div className="settings-container">
+        <div className={'settings-container' + (showing ? ' open' : '')}>
             <Dropdown label="Chart Type" setValue={setConfigs.setChartType} options={chartTypes}></Dropdown>
 
             <label className="text-input-label">

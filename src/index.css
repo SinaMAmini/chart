@@ -24,10 +24,6 @@
     --color-tertiary-blue: hsl(196deg 93% 47%);
     --color-tertiary-green: hsl(153deg 91% 56%);
 
-    --color-csv-format: hsl(205deg 100% 45%);
-    --color-xls-format: hsl(110deg 100% 35%);
-    --color-json-format: hsl(40deg 100% 45%);
-
     --success-color: hsl(123deg 38% 57%);
     --success-color-dark: hsl(123deg 38% 49%);
 
@@ -56,8 +52,6 @@
     --padding-large: 4rem;
     --padding-medium: 2rem;
     --padding-small: 1rem;
-
-    --thumb-color: 210;
 }
 
 *,
@@ -88,7 +82,7 @@ body {
     color: var(--color-gray-20);
 
     min-block-size: 100vh;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 
     margin: 0;
 

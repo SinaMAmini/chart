@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Chart from '../components/Chart';
 import ChartSetting from '../components/ChartSetting';
 import './Home.scss';
+import data from'../data.json'  ;
 
 function Home() {
     const [xAxisTitle, setXAxisTitle] = useState('Browser');
@@ -16,11 +17,15 @@ function Home() {
 
     const [options, setOptions] = useState({});
 
+    const [optionShowing, setOptionShowing] = useState(false);
+
     useEffect(
         () =>
             setOptions({
                 chart: {
                     type: chartType,
+                    height: 100 + '%',
+                    width: document.body.clientWidth < 703 ? document.body.clientWidth : 100 + '%',
                 },
                 title: {
                     text: title,
@@ -96,10 +101,16 @@ function Home() {
         [xAxisTitle, yAxisTitle, title, subtitle, colorHue, tooltipShowing, labelShowing, chartType, wordAfterLabel]
     );
 
+    const handle = () => {
+        console.log(data);
+    }
+
     return (
         <div className="home">
+            <i className="fa-solid bar" onClick={() => setOptionShowing(!optionShowing)}></i>
             <Chart options={options}></Chart>
             <ChartSetting
+                showing={optionShowing}
                 setConfigs={{
                     setChartType,
                     setColorHue,
@@ -123,6 +134,7 @@ function Home() {
                     wordAfterLabel,
                 }}
             ></ChartSetting>
+            <button onClick={() => handle()}>click me</button>
         </div>
     );
 }
