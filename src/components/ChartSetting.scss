@@ -1,0 +1,24 @@
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    inline-size: 90%;
+
+    background-color: var(--color-accent-darker);
+
+    font-size: var(--font-size-paragraph);
+
+    padding: var(--padding-medium);
+
+    .text-input-label {
+        display: flex;
+        flex-direction: column;
+        gap: var(--flex-gap-medium);
+    }
+
+    .checkbox-input-label {
+        display: flex;
+        column-gap: var(--flex-gap-medium);
+    }
+}

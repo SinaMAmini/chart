@@ -1,7 +1,7 @@
 .home {
     display: flex;
-    min-height: 100vh;
-    min-width: 100vw;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
+    min-block-size: 100vh;
+    min-inline-size: 100vw;
 }

@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Chart from '../components/Chart';
 import ChartSetting from '../components/ChartSetting';
 import './Home.scss';
@@ -9,10 +8,11 @@ function Home() {
     const [yAxisTitle, setYAxisTitle] = useState('Total percent market share');
     const [title, setTitle] = useState('Browser market share');
     const [subtitle, setSubtitle] = useState('Source: https://statcounter.com');
-    const [color, setColor] = useState('Blue');
+    const [colorHue, setColorHue] = useState(210);
     const [tooltipShowing, setTooltipShowing] = useState(false);
     const [labelShowing, setLabelShowing] = useState(true);
-    const [chartType, setChartType] = useState('pie');
+    const [wordAfterLabel, setWordAfterLabel] = useState('%');
+    const [chartType, setChartType] = useState('column');
 
     const [options, setOptions] = useState({});
 
@@ -47,10 +47,23 @@ function Home() {
                         borderWidth: 0,
                         dataLabels: {
                             enabled: labelShowing,
-                            format: '{point.y:.1f}%',
+                            format: '{point.y:.1f}' + wordAfterLabel,
                         },
                     },
                 },
+
+                colors: [
+                    `hsl(${colorHue},90%,70%)`,
+                    `hsl(${colorHue},40%,50%)`,
+                    `hsl(${colorHue},80%,80%)`,
+                    `hsl(${colorHue},30%,40%)`,
+                    `hsl(${colorHue},70%,60%)`,
+                    `hsl(${colorHue},20%,40%)`,
+                    `hsl(${colorHue},90%,80%)`,
+                    `hsl(${colorHue},100%,20%)`,
+                    `hsl(${colorHue},100%,70%)`,
+                    `hsl(${colorHue},80%,40%)`,
+                ],
 
                 tooltip: {
                     enabled: tooltipShowing,
@@ -80,12 +93,8 @@ function Home() {
                     },
                 ],
             }),
-        [xAxisTitle, yAxisTitle, title, subtitle, color, tooltipShowing, labelShowing, chartType]
+        [xAxisTitle, yAxisTitle, title, subtitle, colorHue, tooltipShowing, labelShowing, chartType, wordAfterLabel]
     );
-
-    const clickHandler = () => {
-        console.log(options);
-    };
 
     return (
         <div className="home">
@@ -93,26 +102,27 @@ function Home() {
             <ChartSetting
                 setConfigs={{
                     setChartType,
-                    setColor,
+                    setColorHue,
                     setTitle,
                     setSubtitle,
                     setXAxisTitle,
                     setYAxisTitle,
                     setTooltipShowing,
                     setLabelShowing,
+                    setWordAfterLabel,
                 }}
                 configs={{
                     chartType,
-                    color,
+                    colorHue,
                     title,
                     subtitle,
                     xAxisTitle,
                     yAxisTitle,
                     tooltipShowing,
                     labelShowing,
+                    wordAfterLabel,
                 }}
             ></ChartSetting>
-            <button onClick={() => clickHandler()}>click me</button>
         </div>
     );
 }

@@ -1,0 +1,11 @@
+.dropdown-input {
+    display: flex;
+    gap: var(--flex-gap-medium);
+    .select {
+        border-radius: var(--border-radius-small);
+
+        .option {
+            border-radius: var(--border-radius-small);
+        }
+    }
+}
