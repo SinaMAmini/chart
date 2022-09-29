@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Chart from '../components/Chart';
 import ChartSetting from '../components/ChartSetting';
 import './Home.scss';
-import data from'../data.json'  ;
+import apiData from '../apiData.json';
 
 function Home() {
     const [xAxisTitle, setXAxisTitle] = useState('Browser');
@@ -101,10 +101,6 @@ function Home() {
         [xAxisTitle, yAxisTitle, title, subtitle, colorHue, tooltipShowing, labelShowing, chartType, wordAfterLabel]
     );
 
-    const handle = () => {
-        console.log(data);
-    }
-
     return (
         <div className="home">
             <i className="fa-solid bar" onClick={() => setOptionShowing(!optionShowing)}></i>
@@ -134,7 +130,6 @@ function Home() {
                     wordAfterLabel,
                 }}
             ></ChartSetting>
-            <button onClick={() => handle()}>click me</button>
         </div>
     );
 }
