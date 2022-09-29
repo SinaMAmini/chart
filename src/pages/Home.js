@@ -18,8 +18,6 @@ function Home() {
 
     const [options, setOptions] = useState({});
 
-    const [optionShowing, setOptionShowing] = useState(false);
-
     useEffect(() => {
         window.addEventListener('resize', () => {
             setWindowWidth(window.innerWidth);
@@ -105,7 +103,6 @@ function Home() {
         <div className="home">
             <Chart options={options}></Chart>
             <ChartSetting
-                showing={optionShowing}
                 setConfigs={{
                     setChartType,
                     setColorHue,
