@@ -7,33 +7,32 @@
 
     padding: var(--padding-large) max(calc((100% - 120rem) / 2), 2rem);
 
-    .bar {
+    button {
         display: none;
     }
 }
 
-@media (min-width: 703px) {
-    .home {
-        .bar {
-            position: fixed;
-            inset-block-start: 5rem;
-            inset-inline-end: 5rem;
-            z-index: 3;
-
-            display: block;
-            inline-size: 4rem;
-            block-size: 4rem;
-
-            background-color: black;
-        }
-
-        justify-content: start;
-    }
-}
+//@media (min-width: 703px) {
+//    .home {
+//        button {
+//            display: block;
+//            inline-size: 4rem;
+//            block-size: 4rem;
+//            position: fixed;
+//            inset-block-start: 5rem;
+//            inset-inline-end: 5rem;
+//            z-index: 3;
+//            background-color: var(--color-primary-dark);
+//            color: var(--color-accent-light);
+//        }
+//
+//        justify-content: start;
+//    }
+//}
 
 @media (min-width: 1024px) {
     .home {
-        .bar {
+        button {
             display: none;
         }
     }

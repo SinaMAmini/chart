@@ -14,96 +14,95 @@ function Home() {
     const [labelShowing, setLabelShowing] = useState(true);
     const [wordAfterLabel, setWordAfterLabel] = useState('%');
     const [chartType, setChartType] = useState('column');
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const [options, setOptions] = useState({});
 
     const [optionShowing, setOptionShowing] = useState(false);
 
-    useEffect(
-        () =>
-            setOptions({
-                chart: {
-                    type: chartType,
-                    height: 100 + '%',
-                    width: document.body.clientWidth < 703 ? document.body.clientWidth : 100 + '%',
-                },
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setWindowWidth(window.innerWidth);
+        });
+        setOptions({
+            chart: {
+                type: chartType,
+                height: 100 + '%',
+                width: windowWidth < 703 ? windowWidth : 600,
+            },
+            title: {
+                text: title,
+            },
+            subtitle: {
+                text: subtitle,
+            },
+            xAxis: {
                 title: {
-                    text: title,
+                    text: xAxisTitle,
                 },
-                subtitle: {
-                    text: subtitle,
+            },
+            yAxis: {
+                title: {
+                    text: yAxisTitle,
                 },
-                xAxis: {
-                    title: {
-                        text: xAxisTitle,
+            },
+            legend: {
+                enabled: false,
+            },
+            plotOptions: {
+                series: {
+                    pointPadding: 0.4,
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: labelShowing,
+                        format: '{point.y:.1f}' + wordAfterLabel,
                     },
                 },
-                yAxis: {
-                    title: {
-                        text: yAxisTitle,
-                    },
-                },
-                legend: {
-                    enabled: false,
-                },
-                plotOptions: {
-                    series: {
-                        pointPadding: 0.4,
-                        borderWidth: 0,
-                        dataLabels: {
-                            enabled: labelShowing,
-                            format: '{point.y:.1f}' + wordAfterLabel,
-                        },
-                    },
-                },
+            },
 
-                colors: [
-                    `hsl(${colorHue},90%,70%)`,
-                    `hsl(${colorHue},40%,50%)`,
-                    `hsl(${colorHue},80%,80%)`,
-                    `hsl(${colorHue},30%,40%)`,
-                    `hsl(${colorHue},70%,60%)`,
-                    `hsl(${colorHue},20%,40%)`,
-                    `hsl(${colorHue},90%,80%)`,
-                    `hsl(${colorHue},100%,20%)`,
-                    `hsl(${colorHue},100%,70%)`,
-                    `hsl(${colorHue},80%,40%)`,
-                ],
+            colors: [
+                `hsl(${colorHue},90%,70%)`,
+                `hsl(${colorHue},40%,50%)`,
+                `hsl(${colorHue},80%,80%)`,
+                `hsl(${colorHue},30%,40%)`,
+                `hsl(${colorHue},70%,60%)`,
+                `hsl(${colorHue},20%,40%)`,
+                `hsl(${colorHue},90%,80%)`,
+                `hsl(${colorHue},100%,20%)`,
+                `hsl(${colorHue},100%,70%)`,
+                `hsl(${colorHue},80%,40%)`,
+            ],
 
-                tooltip: {
-                    enabled: tooltipShowing,
-                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                    pointFormat:
-                        '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>',
+            tooltip: {
+                enabled: tooltipShowing,
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat:
+                    '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>',
+            },
+
+            series: [
+                {
+                    name: 'Browsers',
+                    colorByPoint: true,
+                    data: apiData,
                 },
-
-                series: [
-                    {
-                        name: 'Browsers',
-                        colorByPoint: true,
-                        data: [
-                            {
-                                name: 'Chrome',
-                                y: 63.1,
-                            },
-                            {
-                                name: 'Firefox',
-                                y: 4.2,
-                            },
-                            {
-                                name: 'Safari',
-                                y: 19.8,
-                            },
-                        ],
-                    },
-                ],
-            }),
-        [xAxisTitle, yAxisTitle, title, subtitle, colorHue, tooltipShowing, labelShowing, chartType, wordAfterLabel]
-    );
+            ],
+        });
+    }, [
+        xAxisTitle,
+        yAxisTitle,
+        title,
+        subtitle,
+        colorHue,
+        tooltipShowing,
+        labelShowing,
+        chartType,
+        wordAfterLabel,
+        windowWidth,
+    ]);
 
     return (
         <div className="home">
-            <i className="fa-solid bar" onClick={() => setOptionShowing(!optionShowing)}></i>
             <Chart options={options}></Chart>
             <ChartSetting
                 showing={optionShowing}
