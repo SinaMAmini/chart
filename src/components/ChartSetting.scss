@@ -1,22 +1,22 @@
 .settings-container {
+    background-color: var(--color-accent-darker);
+
     display: flex;
     flex-direction: column;
     gap: 2rem;
 
     inline-size: 70rem;
 
-    background-color: var(--color-accent-darker);
+    padding: var(--padding-medium);
 
     font-size: var(--font-size-paragraph);
 
-    padding: var(--padding-medium);
-
     .text-input-label {
+        color: (var(--color-primary-darker));
+
         display: flex;
         flex-direction: column;
         gap: var(--flex-gap-medium);
-
-        color: (var(--color-primary-darker));
 
         input {
             background-color: var(--color-accent-light);
@@ -25,11 +25,11 @@
     }
 
     .checkbox-input-label {
+        color: (var(--color-primary-darker));
+
         display: flex;
         align-items: center;
         column-gap: var(--flex-gap-medium);
-
-        color: (var(--color-primary-darker));
 
         input {
             background-color: var(--color-accent-light);
@@ -38,26 +38,10 @@
     }
 }
 
-//@media (min-width: 703px) {
-//    .settings-container {
-//        position: fixed;
-//        inset-inline-end: 0;
-//        inset-block: 0;
-//
-//        overflow-y: auto;
-//
-//        transform: translateX(100%);
-//        transition: transform 300ms ease-in-out;
-//
-//        &.open {
-//            transform: translateX(0);
-//        }
-//    }
-//}
-
 @media (min-width: 1024px) {
     .settings-container {
         position: static;
+
         block-size: 100%;
         inline-size: calc(100% - 63rem);
 

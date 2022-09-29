@@ -22,7 +22,13 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "eslint:check": "ng lint",
+        "eslint:fix": "ng lint --fix",
+        "stylelint:check": "stylelint \"**/*.scss\"",
+        "stylelint:fix": "stylelint \"**/*.scss\" --fix",
+        "prettier:check": "prettier . --check",
+        "prettier:fix": "prettier . --write"
     },
     "eslintConfig": {
         "extends": [
@@ -42,8 +48,20 @@
             "last 1 safari version"
         ]
     },
+    "rule": {
+        "react/react-in-jsx-scope": "off"
+    },
     "devDependencies": {
+        "eslint": "^8.24.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.31.8",
         "gh-pages": "^4.0.0",
-        "prettier": "2.7.1"
+        "postcss": "^8.4.16",
+        "prettier": "^2.7.1",
+        "stylelint": "^14.13.0",
+        "stylelint-config-prettier-scss": "^0.0.1",
+        "stylelint-config-standard-scss": "^5.0.0",
+        "stylelint-order": "^5.0.0"
     }
 }

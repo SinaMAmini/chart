@@ -1,5 +1,5 @@
 :root {
-    --thumb-shadow: 0.1rem 0.1rem 0.3rem hsl(0, 0%, 0%);
+    --thumb-shadow: 0.1rem 0.1rem 0.3rem hsl(0deg 0% 0%);
     --thumb-block-size: 2rem;
     --thumb-inline-size: 2rem;
     --thumb-color: 210;
@@ -7,28 +7,30 @@
 
     --runnable-track-background: linear-gradient(
         to right,
-        hsl(0, 100%, 50%),
-        hsl(30, 100%, 50%),
-        hsl(60, 100%, 50%),
-        hsl(90, 100%, 50%),
-        hsl(120, 100%, 50%),
-        hsl(150, 100%, 50%),
-        hsl(180, 100%, 50%),
-        hsl(210, 100%, 50%),
-        hsl(240, 100%, 50%),
-        hsl(270, 100%, 50%),
-        hsl(300, 100%, 50%),
-        hsl(330, 100%, 50%),
-        hsl(360, 100%, 50%)
+        hsl(0deg 100% 50%),
+        hsl(30deg 100% 50%),
+        hsl(60deg 100% 50%),
+        hsl(90deg 100% 50%),
+        hsl(120deg 100% 50%),
+        hsl(150deg 100% 50%),
+        hsl(180deg 100% 50%),
+        hsl(210deg 100% 50%),
+        hsl(240deg 100% 50%),
+        hsl(270deg 100% 50%),
+        hsl(300deg 100% 50%),
+        hsl(330deg 100% 50%),
+        hsl(360deg 100% 50%)
     );
 }
 
 input[type="range"] {
     background-color: transparent;
-    height: 2.7rem;
-    -webkit-appearance: none;
-    margin: 1rem 0;
+
     width: 100%;
+    height: 2.7rem;
+
+    margin: 1rem 0;
+    appearance: none;
 }
 
 input[type="range"]:focus {
@@ -36,26 +38,33 @@ input[type="range"]:focus {
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--runnable-track-background);
+    box-shadow: none;
+
     width: 100%;
     height: 1rem;
+
+    border: none;
+    border-radius: 0.5rem;
+
     cursor: pointer;
     animate: 0.2s;
-    box-shadow: none;
-    background: var(--runnable-track-background);
-    border-radius: 0.5rem;
-    border: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
+    background: hsl(var(--thumb-color) 100% 50%);
     box-shadow: var(--thumb-shadow);
-    border: none;
+
     block-size: var(--thumb-block-size);
     inline-size: var(--thumb-inline-size);
-    border-radius: var(--thumb-border-radius);
-    background: hsl(var(--thumb-color), 100%, 50%);
-    cursor: pointer;
-    -webkit-appearance: none;
+
     margin-top: -0.5rem;
+
+    border: none;
+    border-radius: var(--thumb-border-radius);
+
+    cursor: pointer;
+    appearance: none;
 }
 
 input[type="range"]:focus::-webkit-slider-runnable-track {
@@ -63,58 +72,73 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
 }
 
 input[type="range"]::-moz-range-track {
+    background: var(--runnable-track-background);
+    box-shadow: none;
+
     width: 100%;
     height: 1rem;
+
+    border: none;
+    border-radius: 0.5rem;
+
     cursor: pointer;
     animate: 0.2s;
-    box-shadow: none;
-    background: var(--runnable-track-background);
-    border-radius: 0.5rem;
-    border: none;
 }
 
 input[type="range"]::-moz-range-thumb {
+    background: hsl(var(--thumb-color) 100% 50%);
     box-shadow: var(--thumb-shadow);
-    border: none;
+
     block-size: var(--thumb-block-size);
     inline-size: -var(-thumb-inline-size);
+
+    border: none;
     border-radius: var(--thumb-border-radius);
-    background: hsl(var(--thumb-color), 100%, 50%);
+
     cursor: pointer;
 }
 
 input[type="range"]::-ms-track {
+    background: transparent;
+    color: transparent;
+
     width: 100%;
     height: 1rem;
+
+    border-color: transparent;
+
     cursor: pointer;
     animate: 0.2s;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
 }
 
 input[type="range"]::-ms-fill-lower {
     background: var(--runnable-track-background);
+    box-shadow: none;
+
     border: none;
     border-radius: 1rem;
-    box-shadow: none;
 }
 
 input[type="range"]::-ms-fill-upper {
     background: var(--runnable-track-background);
+    box-shadow: none;
+
     border: none;
     border-radius: 1rem;
-    box-shadow: none;
 }
 
 input[type="range"]::-ms-thumb {
-    margin-top: 0.1rem;
+    background: hsl(var(--thumb-color) 100% 50%);
     box-shadow: var(--thumb-shadow);
-    border: none;
+
     block-size: var(--thumb-block-size);
     inline-size: var(--thumb-inline-size);
+
+    margin-top: 0.1rem;
+
+    border: none;
     border-radius: var(--thumb-border-radius);
-    background: hsl(var(--thumb-color), 100%, 50%);
+
     cursor: pointer;
 }
 
