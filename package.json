@@ -1,8 +1,8 @@
 {
+    "homepage": "https://SinaMAmini.github.io/chart",
     "name": "chart",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://SinaMAmini.github.io/chart",
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.2.0",
         "@testing-library/jest-dom": "^5.16.5",
