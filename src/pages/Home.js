@@ -37,7 +37,7 @@ function Home() {
         setOptions({
             chart: {
                 type: chartType,
-                height: 100 + '%',
+                height: windowWidth < 1024 ? 100 + '%' : 661,
                 width: windowWidth < 703 ? windowWidth : 600,
             },
             title: {
