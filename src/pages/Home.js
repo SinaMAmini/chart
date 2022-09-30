@@ -22,6 +22,7 @@ function Home() {
         window.addEventListener('resize', () => {
             setWindowWidth(window.innerWidth);
         });
+
         setOptions({
             chart: {
                 type: chartType,

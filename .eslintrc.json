@@ -8,14 +8,9 @@
                 "project": ["tsconfig.json"],
                 "createDefaultProgram": true
             },
-            "extends": [
-                "plugin:@angular-eslint/recommended",
-                "plugin:@angular-eslint/template/process-inline-templates",
-                "prettier"
-            ],
             "plugins": ["prettier"],
             "rules": {
-                "@angular-eslint/directive-selector": [
+                "directive-selector": [
                     "error",
                     {
                         "type": "attribute",
@@ -23,7 +18,7 @@
                         "style": "camelCase"
                     }
                 ],
-                "@angular-eslint/component-selector": [
+                "@component-selector": [
                     "error",
                     {
                         "type": "element",
@@ -31,14 +26,11 @@
                         "style": "kebab-case"
                     }
                 ],
-                "@typescript-eslint/explicit-member-accessibility": ["error"],
-                "@typescript-eslint/explicit-function-return-type": ["error"],
                 "prettier/prettier": ["error", {"endOfLine": "auto"}]
             }
         },
         {
             "files": ["*.html"],
-            "extends": ["plugin:@angular-eslint/template/recommended", "prettier"],
             "plugins": ["prettier"],
             "rules": {"prettier/prettier": ["error", {"endOfLine": "auto"}]}
         }
