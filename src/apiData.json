@@ -1,14 +1,14 @@
 [
     {
-        "name": "Chrome",
-        "y": 63.1
+        "browser": "Chrome",
+        "total": 63.1
     },
     {
-        "name": "Firefox",
-        "y": 4.2
+        "browser": "Firefox",
+        "total": 4.2
     },
     {
-        "name": "Safari",
-        "y": 19.8
+        "browser": "Safari",
+        "total": 19.8
     }
 ]

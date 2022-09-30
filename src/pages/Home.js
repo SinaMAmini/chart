@@ -18,6 +18,16 @@ function Home() {
 
     const [options, setOptions] = useState({});
 
+    const [chartData, setChartData] = useState([]);
+
+    useEffect(() => {
+        const tempData = [];
+        [...apiData].forEach((item) => {
+            tempData.push({name: item.browser, y: item.total});
+        });
+        setChartData(tempData);
+    }, []);
+
     useEffect(() => {
         window.addEventListener('resize', () => {
             setWindowWidth(window.innerWidth);
@@ -83,7 +93,7 @@ function Home() {
                 {
                     name: 'Browsers',
                     colorByPoint: true,
-                    data: apiData,
+                    data: chartData,
                 },
             ],
         });
