@@ -25,6 +25,7 @@ function Home() {
         [...apiData].forEach((item) => {
             tempData.push({name: item.browser, y: item.total});
         });
+
         setChartData(tempData);
     }, []);
 
@@ -108,6 +109,7 @@ function Home() {
         chartType,
         wordAfterLabel,
         windowWidth,
+        chartData,
     ]);
 
     return (
